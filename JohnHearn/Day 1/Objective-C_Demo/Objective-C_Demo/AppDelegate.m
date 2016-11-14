@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Controllers/ViewController+Identifier.h"
+
+//extern gMoveNumber;
 
 @interface AppDelegate ()
 
@@ -17,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    ViewController *myCrazyVC = [[ViewController alloc] init];
+
+    NSString *identifier = [myCrazyVC identifier];
     return YES;
 }
 

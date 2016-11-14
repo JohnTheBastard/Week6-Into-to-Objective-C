@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ViewControllerDataSource.h"
+#import "../Models/Person.h"
 
-@interface ViewController ()
+//int gMoveNumber = 10;
+
+
+@interface ViewController ()<UIPageViewControllerDataSource>
 
 @end
 
@@ -16,7 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+
+    Person *testSubject = [[Person alloc] init];
+
+    [testSubject setName:@"Adam"];
+
+    NSString *name = [testSubject name];
+
+    NSLog(@"%@", name);
+
+    [testSubject walk];
+
+    [Person sayHello];
+
 }
 
 
