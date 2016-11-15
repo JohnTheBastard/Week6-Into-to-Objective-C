@@ -15,6 +15,8 @@
 		F2428A1C1DDA60AB00C6BA58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2428A1B1DDA60AB00C6BA58 /* Assets.xcassets */; };
 		F2428A221DDA60BE00C6BA58 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2428A1E1DDA60BE00C6BA58 /* ViewController.m */; };
 		F2428A231DDA60BE00C6BA58 /* ViewController+Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = F2428A201DDA60BE00C6BA58 /* ViewController+Identifier.m */; };
+		F2428A261DDA619000C6BA58 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = F2428A251DDA619000C6BA58 /* Employee.m */; };
+		F2428A291DDA87BA00C6BA58 /* NSString+WordArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F2428A281DDA87BA00C6BA58 /* NSString+WordArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,10 @@
 		F2428A1F1DDA60BE00C6BA58 /* ViewController+Identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ViewController+Identifier.h"; path = "Controllers/ViewController+Identifier.h"; sourceTree = "<group>"; };
 		F2428A201DDA60BE00C6BA58 /* ViewController+Identifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ViewController+Identifier.m"; path = "Controllers/ViewController+Identifier.m"; sourceTree = "<group>"; };
 		F2428A211DDA60BE00C6BA58 /* ViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerDataSource.h; path = Controllers/ViewControllerDataSource.h; sourceTree = "<group>"; };
+		F2428A241DDA619000C6BA58 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Employee.h; path = Models/Employee.h; sourceTree = "<group>"; };
+		F2428A251DDA619000C6BA58 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Employee.m; path = Models/Employee.m; sourceTree = "<group>"; };
+		F2428A271DDA87BA00C6BA58 /* NSString+WordArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+WordArray.h"; path = "Models/NSString+WordArray.h"; sourceTree = "<group>"; };
+		F2428A281DDA87BA00C6BA58 /* NSString+WordArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+WordArray.m"; path = "Models/NSString+WordArray.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,10 @@
 			children = (
 				F2428A181DDA609700C6BA58 /* Person.h */,
 				F2428A191DDA609700C6BA58 /* Person.m */,
+				F2428A241DDA619000C6BA58 /* Employee.h */,
+				F2428A251DDA619000C6BA58 /* Employee.m */,
+				F2428A271DDA87BA00C6BA58 /* NSString+WordArray.h */,
+				F2428A281DDA87BA00C6BA58 /* NSString+WordArray.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -190,7 +200,9 @@
 				F2428A1A1DDA609700C6BA58 /* Person.m in Sources */,
 				F219E19A1DDA355900ADD14C /* AppDelegate.m in Sources */,
 				F2428A231DDA60BE00C6BA58 /* ViewController+Identifier.m in Sources */,
+				F2428A261DDA619000C6BA58 /* Employee.m in Sources */,
 				F2428A221DDA60BE00C6BA58 /* ViewController.m in Sources */,
+				F2428A291DDA87BA00C6BA58 /* NSString+WordArray.m in Sources */,
 				F219E1971DDA355900ADD14C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

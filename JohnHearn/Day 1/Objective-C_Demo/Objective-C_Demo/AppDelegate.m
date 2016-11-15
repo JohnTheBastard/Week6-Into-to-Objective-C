@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "Controllers/ViewController+Identifier.h"
 
-//extern gMoveNumber;
-
 @interface AppDelegate ()
 
 @end

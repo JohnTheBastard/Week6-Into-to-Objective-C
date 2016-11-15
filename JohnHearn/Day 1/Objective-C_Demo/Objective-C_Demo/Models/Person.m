@@ -8,10 +8,11 @@
 
 #import "Person.h"
 
+@interface Person (){
+    NSString *_name;
+}@end
+
 @implementation Person
-
-NSString *_name;
-
 
 -(void)setName:(NSString *)name{
     _name = name;
@@ -23,6 +24,14 @@ NSString *_name;
 
 -(void)walk{
     NSLog(@"This person is walking...");
+}
+
+-(int)nameAddress{
+//    int *p;
+//    *p = &_name;
+//    int q = *p;
+//    int foo = &_name;
+    return &_name;
 }
 
 +(void)sayHello{

@@ -16,6 +16,7 @@
 
 /* Instance Methods */
 -(void)walk;
+-(int)nameAddress;
 
 /* Class Methods */
 +(void)sayHello;
