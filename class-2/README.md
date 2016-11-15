@@ -1,10 +1,12 @@
 #Week 6 - Class 2
 ##Homework
-* Create a simple AddressBook app. See Book examples, but make sure to disable ARC.
-* write your own userDefaults that uses JSON format
-* manage your memory, create proper setters that retain/copy data when assigned(Dont use @property)
-* **Bonus:**
-	* make a private init to make a true singleton(5 Points)
+* Create a new project and Disable ARC.  
+	* Manage your memory, create proper setters that retain/copy data when assigned.  
+* Create a `User` class, but implement the `NSCopying` protocol, and implement `CopyWithZone:` to make deep copies of `User`.  
+	* `User` should have values for `name`, `age`, and `email`.  
+	* `User` should have an initializer that takes in values for each of the above and returns a new instance.(Hint: Yesterday's slides).
+* In `ViewController.m`, inside `viewDidLoad`, create 5 unique instances of `User` and use a `NSMutableDictionary` to store them with their `email` as the key for the dictionary.  
+	* Remember to manually manage your memory for this.  
 
 ###Reading Assignment:
 * Programming in Objective-C
