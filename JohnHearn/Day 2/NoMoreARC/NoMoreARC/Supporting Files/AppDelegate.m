@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "../Models/AddressCard.h"
+#import "../Models/User.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    AddressCard *adam = [[AddressCard alloc] init];
+    User *adam = [[User alloc] init];
     [adam setName:@"Adam"];
     [adam setEmail:@"adam@codefellows.com"];
 
