@@ -1,28 +1,28 @@
 //
-//  User.m
+//  AddressCard.m
 //  NoMoreARC
 //
 //  Created by John D Hearn on 11/15/16.
 //  Copyright © 2016 Bastardized Productions. All rights reserved.
 //
 
-#import "User.h"
+#import "AddressCard.h"
 
-@implementation User
+@implementation AddressCard
 
 /* Setters */
 -(void)setName:(NSString *)name{
     if (_name != name){
         [name retain];
         [_name release];
-        _name = name;
+        _name = [NSString stringWithString: name];
     }
 }
 -(void)setEmail:(NSString *)email{
     if (_email != email){
         [email retain];
         [_email release];
-        _email = email;
+        _email = [NSString stringWithString: email];
     }
 }
 /* Getters */
@@ -41,13 +41,25 @@
     return description;
 }
 
+-(void)print{
+    NSLog (@"===================================");
+    NSLog (@"|                                 |");
+    NSLog (@"| %-31s |", [_name UTF8String]);
+    NSLog (@"| %-31s |", [_email UTF8String]);
+    NSLog (@"|                                 |");
+    NSLog (@"|                                 |");
+    NSLog (@"|                                 |");
+    NSLog (@"|       O                 O       |");
+    NSLog (@"===================================");
+}
+
 -(void)dealloc{
     [_name release];
     [_email release];
     _name = nil;
     _email = nil;
 
-    NSLog(@"User Retain Count: %li", [self retainCount]);
+    NSLog(@"AddressCard Retain Count: %li", [self retainCount]);
 
     [super dealloc];
 }

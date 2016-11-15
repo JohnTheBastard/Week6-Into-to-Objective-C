@@ -1,5 +1,5 @@
 //
-//  User.h
+//  AddressCard.h
 //  NoMoreARC
 //
 //  Created by John D Hearn on 11/15/16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface AddressCard : NSObject
 {
     NSString *_name;
     NSString *_email;
@@ -18,7 +18,7 @@
 -(void)setEmail:(NSString *)email;
 -(NSString *)name;
 -(NSString *)email;
-
 -(NSString *)description;
+-(void)print;
 
 @end
