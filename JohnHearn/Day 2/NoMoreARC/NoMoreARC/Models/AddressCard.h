@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface AddressCard : NSObject
-{
-    NSString *_name;
-    NSString *_email;
-}
+
+@property (nonatomic, copy) NSString *_name, *_email;
 
 -(void)setName:(NSString *)name;
 -(void)setEmail:(NSString *)email;
