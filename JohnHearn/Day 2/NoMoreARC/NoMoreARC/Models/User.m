@@ -33,11 +33,22 @@
     return _email;
 }
 
--(NSString *)desctiption{
+-(NSString *)description{
     NSString *description = [[NSString alloc]
                              initWithFormat:@"NAME:%@ - EMAIL:%@", self.name, self.email];
 
     [description autorelease];
     return description;
+}
+
+-(void)dealloc{
+    [_name release];
+    [_email release];
+    _name = nil;
+    _email = nil;
+
+    NSLog(@"User Retain Count: %li", [self retainCount]);
+
+    [super dealloc];
 }
 @end

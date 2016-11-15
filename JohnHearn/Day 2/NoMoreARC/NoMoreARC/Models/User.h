@@ -14,4 +14,11 @@
     NSString *_email;
 }
 
+-(void)setName:(NSString *)name;
+-(void)setEmail:(NSString *)email;
+-(NSString *)name;
+-(NSString *)email;
+
+-(NSString *)description;
+
 @end

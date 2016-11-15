@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "../Models/User.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    User *newUser = [[User alloc] init];
+    [newUser setName:@"Adam"];
+    [newUser setEmail:@"adam@codefellows.com"];
+
+    NSLog(@"%@", newUser.description);
+
+
+    [newUser release];
+
     return YES;
 }
 
