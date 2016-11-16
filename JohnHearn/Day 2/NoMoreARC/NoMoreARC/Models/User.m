@@ -70,16 +70,21 @@
     return _email;
 }
 
--(NSInteger)age{
+-(NSNumber *)age{
     NSDate *now = [NSDate date];
     NSDateComponents* ageComponents =
-                    [[NSCalendar currentCalendar] components:NSCalendarUnitYear
+                    [[NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian] components:NSCalendarUnitYear
                                                     fromDate:_birthdate
                                                       toDate:now
                                                      options:0];
-    [now release];
+    NSLog(@"%@", [NSCalendar currentCalendar]);
+
+
+    NSNumber *year = [[NSNumber alloc] initWithInteger:[ageComponents year]];
     [ageComponents autorelease];
-    return [ageComponents year];
+    [year autorelease];
+    [now autorelease];
+    return year;
 }
 
 -(id)copyWithZone:(NSZone *)zone {
@@ -109,28 +114,31 @@
 }
 
 -(void)print{
-    //NSString *yearsOld = [[NSString alloc] initWithFormat:@"%li", [self age]];
+    NSNumber *yearsNumber = [self age];
+    NSString *yearsOld = [[NSString alloc] initWithFormat:@"%@", yearsNumber];
     // This breaks code, not sure why.
 
     NSLog (@"===================================");
     NSLog (@"|                                 |");
     NSLog (@"| %-31s |", [_name UTF8String]);
     NSLog (@"| %-31s |", [_email UTF8String]);
-//    NSLog (@"| %-31s |", [yearsOld UTF8String]);
+    //NSLog (@"| %-31s |", [yearsOld UTF8String]);
     NSLog (@"|                                 |");
     NSLog (@"|                                 |");
     NSLog (@"|       O                 O       |");
     NSLog (@"===================================");
-//    [yearsOld release];
+    //[yearsOld release];
 }
 
 -(void)dealloc{
     [_name release];
+    [_birthdate release];
     [_email release];
     _name = nil;
+    _birthdate = nil;
     _email = nil;
 
-    NSLog(@"User Retain Count: %li", [self retainCount]);
+    //NSLog(@"User Retain Count: %li", [self retainCount]);
 
     [super dealloc];
 }

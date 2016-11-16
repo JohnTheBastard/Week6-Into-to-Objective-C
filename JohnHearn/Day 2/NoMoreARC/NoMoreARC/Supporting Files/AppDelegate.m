@@ -62,12 +62,13 @@
 
     NSLog(@"%@", dictionary.description);
 
+    [dictionary release];
     [adam release];
     [dave release];
     [brook release];
     [brandy release];
     [roman release];
-    [dictionary release];
+
 
     return YES;
 }

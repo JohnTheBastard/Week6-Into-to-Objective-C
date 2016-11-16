@@ -25,7 +25,7 @@
 -(void)setEmail:(NSString *)email;
 -(NSString *)name;
 -(NSDate *)birthdate;
--(NSInteger)age;
+-(NSNumber *)age;
 -(NSString *)email;
 -(NSString *)description;
 -(void)print;
