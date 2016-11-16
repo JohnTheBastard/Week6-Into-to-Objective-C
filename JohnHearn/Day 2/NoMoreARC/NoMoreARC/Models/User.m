@@ -81,9 +81,9 @@
 
 
     NSNumber *year = [[NSNumber alloc] initWithInteger:[ageComponents year]];
-    [ageComponents autorelease];
-    [year autorelease];
-    [now autorelease];
+    //[ageComponents autorelease];
+    //[year autorelease];
+    //[now autorelease];
     return year;
 }
 

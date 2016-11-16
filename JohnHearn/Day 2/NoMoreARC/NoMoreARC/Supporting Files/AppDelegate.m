@@ -22,7 +22,7 @@
     [adam setName:@"Adam"];
     [adam setBirthdate:adamsBirthday];
     [adam setEmail:@"adam@codfallows.com"];
-    [adamsBirthday release];
+    //[adamsBirthday release];
     NSLog(@"%@", adam.description);
     [adam print];
 
@@ -34,14 +34,14 @@
     User *dave = [[User alloc] initWithName:@"Dave"
                                andBirthdate:davesBirthday
                                    andEmail:@"dave@codfallows.com"];
-    [davesBirthday release];
+    //[davesBirthday release];
     [dictionary setObject:dave forKey:[dave email]];
 
     NSDate *brooksBirthday = [self dateFromString:@"06/06/1979"];
     User *brook = [[User alloc] initWithName:@"Brook"
                                 andBirthdate:brooksBirthday
                                     andEmail:@"brook@codfallows.com"];
-    [brooksBirthday release];
+    //[brooksBirthday release];
     [dictionary setObject:brook forKey:[brook email]];
 
 
@@ -49,7 +49,7 @@
     User *brandy = [[User alloc] initWithName:@"Brandy"
                                andBirthdate:brandysBirthday
                                    andEmail:@"brandy@codfallows.com"];
-    [brandysBirthday release];
+    //[brandysBirthday release];
     [dictionary setObject:brandy forKey:[brandy email]];
 
 
@@ -57,7 +57,7 @@
     User *roman = [[User alloc] initWithName:@"Roman"
                                  andBirthdate:romansBirthday
                                      andEmail:@"roman@codfallows.com"];
-    [romansBirthday release];
+    //[romansBirthday release];
     [dictionary setObject:roman forKey:[roman email]];
 
     NSLog(@"%@", dictionary.description);
