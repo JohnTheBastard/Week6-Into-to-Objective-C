@@ -21,12 +21,53 @@
     NSDate *adamsBirthday = [self dateFromString:@"01/01/1982"];
     [adam setName:@"Adam"];
     [adam setBirthdate:adamsBirthday];
-    [adam setEmail:@"adam@codefellows.com"];
-
+    [adam setEmail:@"adam@codfallows.com"];
+    [adamsBirthday release];
     NSLog(@"%@", adam.description);
-
     [adam print];
+
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setObject:adam forKey:[adam email]];
+
+
+    NSDate *davesBirthday = [self dateFromString:@"01/01/1962"];
+    User *dave = [[User alloc] initWithName:@"Dave"
+                               andBirthdate:davesBirthday
+                                   andEmail:@"dave@codfallows.com"];
+    [davesBirthday release];
+    [dictionary setObject:dave forKey:[dave email]];
+
+    NSDate *brooksBirthday = [self dateFromString:@"06/06/1979"];
+    User *brook = [[User alloc] initWithName:@"Brook"
+                                andBirthdate:brooksBirthday
+                                    andEmail:@"brook@codfallows.com"];
+    [brooksBirthday release];
+    [dictionary setObject:brook forKey:[brook email]];
+
+
+    NSDate *brandysBirthday = [self dateFromString:@"12/12/1973"];
+    User *brandy = [[User alloc] initWithName:@"Brandy"
+                               andBirthdate:brandysBirthday
+                                   andEmail:@"brandy@codfallows.com"];
+    [brandysBirthday release];
+    [dictionary setObject:brandy forKey:[brandy email]];
+
+
+    NSDate *romansBirthday = [self dateFromString:@"11/11/1988"];
+    User *roman = [[User alloc] initWithName:@"Roman"
+                                 andBirthdate:romansBirthday
+                                     andEmail:@"roman@codfallows.com"];
+    [romansBirthday release];
+    [dictionary setObject:roman forKey:[roman email]];
+
+    NSLog(@"%@", dictionary.description);
+
     [adam release];
+    [dave release];
+    [brook release];
+    [brandy release];
+    [roman release];
+    [dictionary release];
 
     return YES;
 }

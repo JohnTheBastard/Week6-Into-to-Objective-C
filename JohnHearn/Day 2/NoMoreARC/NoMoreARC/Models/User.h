@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface User : NSObject <NSCopying>
 {
     NSString *_name;
     NSDate *_birthdate;
@@ -16,12 +16,16 @@
 }
 
 //@property (nonatomic, copy) NSString *_name, *_email;
+-(User *)initWithName:(NSString *)name
+         andBirthdate:(NSDate *)birthdate
+             andEmail:(NSString *)email;
 
 -(void)setName:(NSString *)name;
 -(void)setBirthdate:(NSDate *)birthdate;
 -(void)setEmail:(NSString *)email;
 -(NSString *)name;
 -(NSDate *)birthdate;
+-(NSInteger)age;
 -(NSString *)email;
 -(NSString *)description;
 -(void)print;

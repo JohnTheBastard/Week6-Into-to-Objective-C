@@ -13,10 +13,20 @@
 //@synthesize _name, _email;
 
 /* Setters */
+-(User *)initWithName:(NSString *)name
+         andBirthdate:(NSDate *)birthdate
+             andEmail:(NSString *)email{
+    self = [super init];
+    if(self)
+        [self setName:name andBirthdate:birthdate andEmail:email];
+
+    return self;
+}
+
 
 -(void)setName:(NSString *)name{
     if (_name != name){
-//        [name retain];
+        [name retain];
         [_name release];
         // what's the difference from [name copy] ?
         _name = [NSString stringWithString: name];
@@ -24,18 +34,20 @@
 }
 -(void)setEmail:(NSString *)email{
     if (_email != email){
-//        [email retain];
+        [email retain];
         [_email release];
         _email = [NSString stringWithString: email];
     }
 }
 -(void)setBirthdate:(NSDate *)birthdate{
     if (_birthdate != birthdate){
-//        [birthdate retain];
+        [birthdate retain];
         [_birthdate release];
         _birthdate = [birthdate copy];
     }
 }
+
+
 
 -(void)setName:(NSString *)name
   andBirthdate:(NSDate *)birthdate
@@ -97,15 +109,19 @@
 }
 
 -(void)print{
+    //NSString *yearsOld = [[NSString alloc] initWithFormat:@"%li", [self age]];
+    // This breaks code, not sure why.
+
     NSLog (@"===================================");
     NSLog (@"|                                 |");
     NSLog (@"| %-31s |", [_name UTF8String]);
     NSLog (@"| %-31s |", [_email UTF8String]);
-    NSLog (@"|                                 |");
+//    NSLog (@"| %-31s |", [yearsOld UTF8String]);
     NSLog (@"|                                 |");
     NSLog (@"|                                 |");
     NSLog (@"|       O                 O       |");
     NSLog (@"===================================");
+//    [yearsOld release];
 }
 
 -(void)dealloc{
