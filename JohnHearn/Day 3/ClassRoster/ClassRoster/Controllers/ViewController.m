@@ -22,8 +22,8 @@
     NSLog(@"%@", allStudents);
 
     //CREATE NEW STUDENT TO SAVE
-    //Student *newStudent = [[Student alloc] initWithFirstName:@"Adam" lastName:@"Wallraff" email:@"adam@codfollows.com"];
-    Student *newerStudent = [[Student alloc] initWithFirstName:@"Brook" lastName:@"Riggio" email:@"brook@codfollows.com"];
+    //Student *newStudent = [[Student alloc] initWithFirstName:@"Adam" lastName:@"Wallraff" email:@"adam@codfollows.com" phone:@"+1 (234) 567-8910"];
+    Student *newerStudent = [[Student alloc] initWithFirstName:@"Brook" lastName:@"Riggio" email:@"brook@codfollows.com" phone:@"+1 (234) 567-8910"];
 
     [[StudentStore shared] add:newerStudent];
 
