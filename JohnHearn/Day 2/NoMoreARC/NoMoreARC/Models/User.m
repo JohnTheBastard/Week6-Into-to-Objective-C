@@ -16,22 +16,34 @@
 
 -(void)setName:(NSString *)name{
     if (_name != name){
-        [name retain];
+//        [name retain];
         [_name release];
+        // what's the difference from [name copy] ?
         _name = [NSString stringWithString: name];
     }
 }
 -(void)setEmail:(NSString *)email{
     if (_email != email){
-        [email retain];
+//        [email retain];
         [_email release];
         _email = [NSString stringWithString: email];
     }
 }
+-(void)setBirthdate:(NSDate *)birthdate{
+    if (_birthdate != birthdate){
+//        [birthdate retain];
+        [_birthdate release];
+        _birthdate = [birthdate copy];
+    }
+}
 
--(void)setName:(NSString *)name andEmail:(NSString *)email {
+-(void)setName:(NSString *)name
+  andBirthdate:(NSDate *)birthdate
+      andEmail:(NSString *)email{
     _name = [NSString stringWithString: name];
+    _birthdate = [NSDate copy];
     _email = [NSString stringWithString: email];
+
 }
 
 /* Getters */
@@ -39,17 +51,30 @@
 -(NSString *)name{
     return _name;
 }
+-(NSDate *)birthdate{
+    return _birthdate;
+}
 -(NSString *)email{
     return _email;
 }
 
+-(NSInteger)age{
+    NSDate *now = [NSDate date];
+    NSDateComponents* ageComponents =
+                    [[NSCalendar currentCalendar] components:NSCalendarUnitYear
+                                                    fromDate:_birthdate
+                                                      toDate:now
+                                                     options:0];
+    [now release];
+    [ageComponents autorelease];
+    return [ageComponents year];
+}
 
 -(id)copyWithZone:(NSZone *)zone {
-    id newCard = [[[self class] allocWithZone: zone] init];
-
-    [newCard setName:_name andEmail:_email];
-    [newCard autorelease];
-    return newCard;
+    id newUser = [[[self class] allocWithZone: zone] init];
+    [newUser setName:_name andBirthdate:_birthdate andEmail:_email];
+    [newUser autorelease];
+    return newUser;
 }
 
 -(void)encodeWithCoder:(NSCoder *)encoder {

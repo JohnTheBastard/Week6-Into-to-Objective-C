@@ -15,11 +15,12 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     User *adam = [[User alloc] init];
+    NSDate *adamsBirthday = [self dateFromString:@"01/01/1982"];
     [adam setName:@"Adam"];
+    [adam setBirthdate:adamsBirthday];
     [adam setEmail:@"adam@codefellows.com"];
 
     NSLog(@"%@", adam.description);
@@ -56,6 +57,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+/* Private Helper Methods */
+-(NSDate *)dateFromString:(NSString *)string{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy"];
+    NSDate* date = [formatter dateFromString:string];
+    [formatter release];
+    [date autorelease];
+    NSLog(@"%@", date);
+
+    return date;
+}
+
 
 
 @end

@@ -11,14 +11,17 @@
 @interface User : NSObject
 {
     NSString *_name;
+    NSDate *_birthdate;
     NSString *_email;
 }
 
 //@property (nonatomic, copy) NSString *_name, *_email;
 
 -(void)setName:(NSString *)name;
+-(void)setBirthdate:(NSDate *)birthdate;
 -(void)setEmail:(NSString *)email;
 -(NSString *)name;
+-(NSDate *)birthdate;
 -(NSString *)email;
 -(NSString *)description;
 -(void)print;
