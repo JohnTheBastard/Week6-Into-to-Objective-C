@@ -49,24 +49,24 @@
         [studentsArray addObject:[student copy]];
 
     }
-    return studentsArray;
+    return [studentsArray sortedArrayUsingSelector:@selector(compare:)];
 }
 
 -(void)add:(Student *)student{
-    [self.students setObject:student forKey:student.email];
-    [self save];
-
+    if(![self.students objectForKey:student.email]){
+        [self.students setObject:student forKey:student.email];
+        [self save];
+    }
 }
 
 -(void)remove:(Student *)student{
-    [self.students removeObjectForKey:student.email];
-    [self save];
+    if([self.students objectForKey:student.email]){
+        [self.students removeObjectForKey:student.email];
+        [self save];
+    }
 }
 
 -(void)save{
-
-
-
     BOOL success = [NSKeyedArchiver archiveRootObject:self.students toFile:self.archiveURL.path];
 
     NSLog(@"Success saving: %i", success);

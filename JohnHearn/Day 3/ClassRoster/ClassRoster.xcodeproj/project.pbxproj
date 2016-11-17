@@ -15,6 +15,7 @@
 		F22617C21DDD1C7E00A540D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22617C11DDD1C7E00A540D9 /* Assets.xcassets */; };
 		F22617CE1DDD1C9100A540D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22617CA1DDD1C9100A540D9 /* LaunchScreen.storyboard */; };
 		F22617CF1DDD1C9100A540D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22617CC1DDD1C9100A540D9 /* Main.storyboard */; };
+		F22617D21DDD298800A540D9 /* RosterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F22617D11DDD298800A540D9 /* RosterCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		F22617C11DDD1C7E00A540D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Views/Assets.xcassets; sourceTree = "<group>"; };
 		F22617CB1DDD1C9100A540D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Views/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F22617CD1DDD1C9100A540D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Views/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F22617D01DDD298800A540D9 /* RosterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RosterCell.h; path = Views/RosterCell.h; sourceTree = "<group>"; };
+		F22617D11DDD298800A540D9 /* RosterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RosterCell.m; path = Views/RosterCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				F22617CA1DDD1C9100A540D9 /* LaunchScreen.storyboard */,
 				F22617CC1DDD1C9100A540D9 /* Main.storyboard */,
 				F22617C11DDD1C7E00A540D9 /* Assets.xcassets */,
+				F22617D01DDD298800A540D9 /* RosterCell.h */,
+				F22617D11DDD298800A540D9 /* RosterCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			files = (
 				F22617BA1DDD1BF000A540D9 /* ViewController.m in Sources */,
 				F22617C01DDD1C4C00A540D9 /* AppDelegate.m in Sources */,
+				F22617D21DDD298800A540D9 /* RosterCell.m in Sources */,
 				F22617B61DDCF54200A540D9 /* StudentStore.m in Sources */,
 				F22617BD1DDD1C3100A540D9 /* main.m in Sources */,
 				F22617B21DDCED1700A540D9 /* Student.m in Sources */,
@@ -348,6 +354,7 @@
 				F22617AF1DDCECDC00A540D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

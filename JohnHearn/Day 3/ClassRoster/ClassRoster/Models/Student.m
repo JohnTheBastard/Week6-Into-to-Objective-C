@@ -24,6 +24,10 @@
     return self;
 }
 
+- (NSComparisonResult)compare:(Student *)otherObject {
+    return [self.lastName compare:otherObject.lastName];
+}
+
 //MARK: NSCopying Protocol methods
 -(id)copyWithZone:(NSZone *)zone{
     Student *student = [[Student alloc] init];
