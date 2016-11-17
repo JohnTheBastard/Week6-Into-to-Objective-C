@@ -21,10 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self;
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    NSLog(@"%@", self.allStudents);
 
     //CREATE NEW STUDENT TO SAVE
     Student *adam = [[Student alloc] initWithFirstName:@"Adam"
@@ -50,6 +46,14 @@
                                                   email:@"roman@codfollows.com"
                                                   phone:@"+1 (987) 654-3210"];
     [[StudentStore shared] add:roman];
+    
+    //self.allStudents = [[StudentStore shared] allStudents];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    NSLog(@"%@", self.allStudents);
+
+    //self.allStudents = [[StudentStore shared] allStudents];
 }
 
 
