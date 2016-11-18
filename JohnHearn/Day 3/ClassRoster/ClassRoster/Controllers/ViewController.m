@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "../Views/RosterCell.h"
 #import "../Models/StudentStore.h"
+#import "AddStudentViewController.h"
+
+//static void *kvoContext = &kvoContext;
 
 @interface ViewController ()<UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -48,14 +51,32 @@
     [[StudentStore shared] add:roman];
     
     //self.allStudents = [[StudentStore shared] allStudents];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     NSLog(@"%@", self.allStudents);
 
-    //self.allStudents = [[StudentStore shared] allStudents];
+    self.allStudents = [[StudentStore shared] allStudents];
+    [self.tableView reloadData];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if(context == kvoContext){
+        NSLog(@"\n\nObserver Fired in VC!\n\n");
+        self.allStudents = [[StudentStore shared] allStudents];
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
++(BOOL)automaticallyNotifiesObserversOfAllStudents{
+    return YES;
+}
 
 //MARK: UITableViewDataSource Protocol Methods
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -73,7 +94,8 @@
     }
 
     Student *currentStudent = [self.allStudents objectAtIndex:indexPath.row];
-    cell.nameLabel.text = [[NSString alloc] initWithFormat:@"%@, %@", currentStudent.lastName, currentStudent.firstName];
+    cell.nameLabel.text = [[NSString alloc] initWithFormat:@"%@, %@",
+                           currentStudent.lastName, currentStudent.firstName];
     cell.emailLabel.text = currentStudent.email;
     cell.phoneLabel.text = currentStudent.phone;
     
@@ -86,5 +108,22 @@
     return [[StudentStore shared] count];
 }
 
+
+-(IBAction)addStudentButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"AddStudentViewControllerSegue"
+                              sender:sender];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+//    if([[segue identifier] isEqualToString:@"AddStudentViewControllerSegue"]){
+//        AddStudentViewController *addStudentVC = [segue destinationViewController];
+//
+//        // You can pass stuff to the new VC if you want to here.
+//    }
+
+}
 
 @end

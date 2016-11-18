@@ -16,6 +16,7 @@
 		F22617CE1DDD1C9100A540D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22617CA1DDD1C9100A540D9 /* LaunchScreen.storyboard */; };
 		F22617CF1DDD1C9100A540D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22617CC1DDD1C9100A540D9 /* Main.storyboard */; };
 		F22617D21DDD298800A540D9 /* RosterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F22617D11DDD298800A540D9 /* RosterCell.m */; };
+		F22617D51DDE654900A540D9 /* AddStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F22617D41DDE654900A540D9 /* AddStudentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		F22617CD1DDD1C9100A540D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Views/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F22617D01DDD298800A540D9 /* RosterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RosterCell.h; path = Views/RosterCell.h; sourceTree = "<group>"; };
 		F22617D11DDD298800A540D9 /* RosterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RosterCell.m; path = Views/RosterCell.m; sourceTree = "<group>"; };
+		F22617D31DDE654900A540D9 /* AddStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddStudentViewController.h; path = Controllers/AddStudentViewController.h; sourceTree = "<group>"; };
+		F22617D41DDE654900A540D9 /* AddStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddStudentViewController.m; path = Controllers/AddStudentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 			children = (
 				F22617B81DDD1BF000A540D9 /* ViewController.h */,
 				F22617B91DDD1BF000A540D9 /* ViewController.m */,
+				F22617D31DDE654900A540D9 /* AddStudentViewController.h */,
+				F22617D41DDE654900A540D9 /* AddStudentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				F22617D21DDD298800A540D9 /* RosterCell.m in Sources */,
 				F22617B61DDCF54200A540D9 /* StudentStore.m in Sources */,
 				F22617BD1DDD1C3100A540D9 /* main.m in Sources */,
+				F22617D51DDE654900A540D9 /* AddStudentViewController.m in Sources */,
 				F22617B21DDCED1700A540D9 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

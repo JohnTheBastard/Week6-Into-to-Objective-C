@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Student.h"
 
+static void *kvoContext = &kvoContext;
+
 @interface StudentStore : NSObject
 
 +(instancetype)shared;

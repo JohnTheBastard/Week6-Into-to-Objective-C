@@ -6,6 +6,7 @@
 //  Copyright © 2016 Bastardized Productions. All rights reserved.
 //
 
+
 #import "StudentStore.h"
 
 @interface StudentStore ()
@@ -30,6 +31,10 @@
 
         self.students = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfURL:self.archiveURL]];
 
+        [self addObserver:self forKeyPath:@"self.students"
+                  options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+                  context:&kvoContext];
+
         if(!self.students){
             self.students = [[NSMutableDictionary alloc] init];
         }
@@ -53,23 +58,38 @@
 }
 
 -(void)add:(Student *)student{
-    if(![self.students objectForKey:student.email]){
-        [self.students setObject:student forKey:student.email];
-        [self save];
-    }
+    [self.students setObject:student forKey:student.email];
+//    if(![self.students objectForKey:student.email]){
+//        [self.students setObject:student forKey:student.email];
+//        [self save];
+//    }
 }
 
 -(void)remove:(Student *)student{
-    if([self.students objectForKey:student.email]){
-        [self.students removeObjectForKey:student.email];
-        [self save];
-    }
+    [self.students setObject:student forKey:student.email];
+//    if([self.students objectForKey:student.email]){
+//        [self.students removeObjectForKey:student.email];
+//        [self save];
+//    }
 }
 
 -(void)save{
     BOOL success = [NSKeyedArchiver archiveRootObject:self.students toFile:self.archiveURL.path];
 
     NSLog(@"Success saving: %i", success);
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if(context == kvoContext){
+        NSLog(@"\n\nObserver Fired in StudentStore!\n\n");
+        [self save];
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
++(BOOL)automaticallyNotifiesObserversOfStudents{
+    return YES;
 }
 
 -(NSURL *)archiveURL{
@@ -79,6 +99,10 @@
 
     NSURL *archiveURL = [documentsDirectory URLByAppendingPathComponent:@"archive"];
     return archiveURL;
+}
+
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:@"self.allStudents"];
 }
 
 @end
