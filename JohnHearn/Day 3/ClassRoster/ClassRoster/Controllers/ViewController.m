@@ -16,6 +16,7 @@
 @interface ViewController ()<UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) NSArray *allStudents;
+@property (weak, nonatomic) StudentStore * store;
 @end
 
 @implementation ViewController
@@ -26,56 +27,69 @@
     self.tableView.dataSource = self;
 
     //CREATE NEW STUDENT TO SAVE
-    Student *adam = [[Student alloc] initWithFirstName:@"Adam"
-                                              lastName:@"Wallraff"
-                                                 email:@"adam@codfollows.com"
-                                                 phone:@"+1 (234) 567-8910"];
-    [[StudentStore shared] add:adam];
+//    Student *adam = [[Student alloc] initWithFirstName:@"Adam"
+//                                              lastName:@"Wallraff"
+//                                                 email:@"adam@codfollows.com"
+//                                                 phone:@"+1 (234) 567-8910"];
+//    [[StudentStore shared] add:adam];
+//
+//    Student *brook = [[Student alloc] initWithFirstName:@"Brook"
+//                                               lastName:@"Riggio"
+//                                                  email:@"brook@codfollows.com"
+//                                                  phone:@"+1 (234) 565-4321"];
+//    [[StudentStore shared] add:brook];
+//
+//    Student *brandy = [[Student alloc] initWithFirstName:@"Brandy"
+//                                                lastName:@"Rhodes"
+//                                                   email:@"brandy@codfollows.com"
+//                                                   phone:@"+1 (800) 800-8000"];
+//    [[StudentStore shared] add:brandy];
+//
+//    Student *roman = [[Student alloc] initWithFirstName:@"Roman"
+//                                               lastName:@"Lopez"
+//                                                  email:@"roman@codfollows.com"
+//                                                  phone:@"+1 (987) 654-3210"];
+//    [[StudentStore shared] add:roman];
+//
+    self.store = [StudentStore shared];
 
-    Student *brook = [[Student alloc] initWithFirstName:@"Brook"
-                                               lastName:@"Riggio"
-                                                  email:@"brook@codfollows.com"
-                                                  phone:@"+1 (234) 565-4321"];
-    [[StudentStore shared] add:brook];
+    [self addObserver:self
+           forKeyPath:@"store.students"
+              options:NSKeyValueObservingOptionNew
+              context:&kvoContext];
 
-    Student *brandy = [[Student alloc] initWithFirstName:@"Brandy"
-                                                lastName:@"Rhodes"
-                                                   email:@"brandy@codfollows.com"
-                                                   phone:@"+1 (800) 800-8000"];
-    [[StudentStore shared] add:brandy];
-
-    Student *roman = [[Student alloc] initWithFirstName:@"Roman"
-                                               lastName:@"Lopez"
-                                                  email:@"roman@codfollows.com"
-                                                  phone:@"+1 (987) 654-3210"];
-    [[StudentStore shared] add:roman];
-    
-    //self.allStudents = [[StudentStore shared] allStudents];
 
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    NSLog(@"%@", self.allStudents);
-
-    self.allStudents = [[StudentStore shared] allStudents];
-    [self.tableView reloadData];
-}
+//-(void)viewWillAppear:(BOOL)animated{
+//    NSLog(@"%@", self.allStudents);
+//    //self.allStudents = [[StudentStore shared] allStudents];
+//    [self.tableView reloadData];
+//    //self.allStudents = [[StudentStore shared] allStudents];
+//}
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                      context:(void *)context{
     if(context == kvoContext){
         NSLog(@"\n\nObserver Fired in VC!\n\n");
         self.allStudents = [[StudentStore shared] allStudents];
+        [self.tableView reloadData];
     } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        [super observeValueForKeyPath:keyPath
+                             ofObject:object
+                               change:change
+                              context:context];
     }
 }
 
 +(BOOL)automaticallyNotifiesObserversOfAllStudents{
-    return YES;
+    return NO;
 }
 
 //MARK: UITableViewDataSource Protocol Methods
@@ -126,4 +140,7 @@
 
 }
 
+-(void)dealloc{
+    [self removeObserver:self forKeyPath:@"store.students"];
+}
 @end
